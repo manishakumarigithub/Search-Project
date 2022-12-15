@@ -1,0 +1,33 @@
+.backgrounndimage {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+.home_body {
+  position: absolute;
+  text-align: center;
+  top: 250px;
+  right: 500px;
+  font-weight: bold;
+  font-size: 40px;
+}
+.popular {
+  font-weight: bold;
+  font-size: 40px;
+}
+.backgrounndimage.img {
+  height: 500px;
+  width: 100%;
+}
+.popular-images {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 50%;
+}
+.popular-images1 {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

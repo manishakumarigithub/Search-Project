@@ -1,0 +1,28 @@
+.Wrap_box {
+  position: relative;
+  display: flex;
+}
+.link1 {
+  position: absolute;
+  padding: 30px;
+  right: 300px;
+  text-decoration: none;
+}
+.link2 {
+  position: absolute;
+  padding: 30px;
+  right: 200px;
+  text-decoration: none;
+}
+.link3 {
+  position: absolute;
+  padding: 30px;
+  right: 100px;
+  text-decoration: none;
+}
+.link4 {
+  position: absolute;
+  padding: 30px;
+  right: 20px;
+  text-decoration: none;
+}
