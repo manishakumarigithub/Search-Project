@@ -1,10 +1,20 @@
 import React from "react";
 import RecipeComponent from "../Component/RecipeComponent";
-export default function Recipe() {
+import { RecipeType } from "../App";
+
+type Usersrecipe = {
+  recipes: RecipeType[];
+};
+
+export default function Recipe({ recipes }: Usersrecipe) {
+  //console.log(recipes, "ppp");
+
   return (
     <div>
-      Recipe
-      <RecipeComponent></RecipeComponent>
+      List
+      {recipes.map((item) => {
+        return <RecipeComponent recipe={item} />;
+      })}
     </div>
   );
 }
