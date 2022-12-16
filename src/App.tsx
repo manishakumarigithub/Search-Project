@@ -18,6 +18,7 @@ export type RecipeType = {
   strMeasure1: string;
   strIngredient2: string;
   strMeasure2: string;
+  g;
   strIngredient3: string;
   strMeasure3: string;
 };
@@ -50,17 +51,12 @@ function App() {
 
   return (
     <div className="App">
-      <div>R</div>
-
       <div>
         <Navbar></Navbar>
 
         <Routes>
           <Route path="" element={<Home></Home>}></Route>
-          <Route
-            path="recipe"
-            element={<Recipe recipes={recipes}></Recipe>}
-          ></Route>
+          <Route path="recipe" element={<Recipe recipes={recipes} />}></Route>
           <Route
             path="favorite"
             element={<Favorite favorites={favoriterecipe}></Favorite>}

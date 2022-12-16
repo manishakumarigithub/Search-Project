@@ -13,8 +13,7 @@ export default function Favorite({ favorites }: Favoriteprop) {
     <div>
       Favorite
       {favorites.map((item) => {
-        return <FavoriteCart favoriteitem={item} />;
-        console.log(item, "data from favorite");
+        return <FavoriteCart key={item.idMeal} favoriteitem={item} />;
       })}
     </div>
   );
