@@ -6,10 +6,10 @@ type PropFitem = { favoriteitem: FavoriteRecipeType };
 export default function FavoriteComponent({ favoriteitem }: PropFitem) {
   return (
     <div>
-      <h1> hi si</h1> FavoriteComponent This is Favorite Item
+      FavoriteComponent This is Favorite
       <p>Name: {favoriteitem.strMeal}</p>
       <p>Category: {favoriteitem.strCategory}</p>
-      <img src={favoriteitem.strMealThumb} />
+      <img src={favoriteitem.strMealThumb} height="60px" />
     </div>
   );
 }

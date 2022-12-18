@@ -18,7 +18,7 @@ export type RecipeType = {
   strMeasure1: string;
   strIngredient2: string;
   strMeasure2: string;
-  g;
+
   strIngredient3: string;
   strMeasure3: string;
 };
@@ -32,22 +32,21 @@ export type FavoriteRecipeType = {
 const Apiurl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 function App() {
-  const [userinput, setuserinput] = useState("");
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
-  const [favoriterecipe, setfavoriterecipe] = useState<FavoriteRecipeType[]>(
-    []
-  );
-  console.log(favoriterecipe);
-  const url = Apiurl + userinput;
+  const [favoriteCart, setfavoriteCart] = useState<FavoriteRecipeType[]>([]);
+
+  //console.log(favoriterecipe);
+  //const url = Apiurl + userinput;
+
   function getdata() {
-    fetch(url)
+    fetch(Apiurl)
       .then((res) => res.json())
       .then((data) => setRecipes(data.meals));
   }
+  let result;
   useEffect(() => {
     getdata();
-  }, [url]);
-  //console.log(recipes, "data");
+  }, []);
 
   return (
     <div className="App">
@@ -56,10 +55,20 @@ function App() {
 
         <Routes>
           <Route path="" element={<Home></Home>}></Route>
-          <Route path="recipe" element={<Recipe recipes={recipes} />}></Route>
+          <Route
+            path="recipe"
+            element={
+              <Recipe
+                recipes={recipes}
+                setRecipes={setRecipes}
+                favoritecart={favoriteCart}
+                setfavorite={setfavoriteCart}
+              />
+            }
+          ></Route>
           <Route
             path="favorite"
-            element={<Favorite favorites={favoriterecipe}></Favorite>}
+            element={<Favorite favoritecart={favoriteCart}></Favorite>}
           ></Route>
           <Route path="contact" element={<Contact></Contact>}></Route>
         </Routes>
