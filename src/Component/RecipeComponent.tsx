@@ -20,35 +20,51 @@ export default function RecipeComponent({
     //let updatearray = [...cartarray, item];
     // current arry and adding new
     //console.log(item);
-    let updateatribute = { ...item, quantity: 1 };
+    let updateatribute = { ...item, quantity: 1 }; //adding new attribute
 
     let productindex = cartarray.findIndex((product) => {});
-    setfavorite([...cartarray, item]);
+    setfavorite([...cartarray, item]); //adding the item to cart
 
     //console.log(cartarray);
   };
 
   return (
     <div>
-      RecipeCart
-      <p className="firstletter">First letter: {recipe.strMeal.charAt(0)} </p>
-      <p className="Name">Name: {recipe.strMeal}</p>
-      <p className="category">Category: {recipe.strCategory}</p>
-      <img src={recipe.strMealThumb} height="100px" />
-      <p>Ingredient1: {recipe.strIngredient1}</p>
-      <p>Measure1: {recipe.strMeasure1}</p>
-      <p>Ingredient2: {recipe.strIngredient2}</p>
-      <p>Measure2: {recipe.strMeasure2}</p>
-      <p>Ingredient3: {recipe.strIngredient3}</p>
-      <p>Measure3: {recipe.strMeasure3}</p>
-      <div>
-        <button
-          onClick={() => {
-            addproduct(recipe);
-          }}
-        >
-          add to favorite
-        </button>
+      <div className="wrap_box1">
+        <div>
+          <p className="firstletter"> {recipe.strMeal.charAt(0)} </p>
+        </div>
+        <div>
+          <p> {recipe.strIngredient1}</p>
+          <p className="Name">{recipe.strMeal}</p>
+        </div>
+        {/*<p className="category">Category: {recipe.strCategory}</p>*/}
+        <img src={recipe.strMealThumb} height="100px" />
+        <div>
+          <h3>Ingredients</h3>
+        </div>
+        <div>
+          <p>
+            1: {recipe.strMeasure1}:{recipe.strIngredient2}
+          </p>
+          <p>
+            2:{recipe.strIngredient2}:{recipe.strMeasure2}
+          </p>
+
+          <p>
+            3: {recipe.strIngredient3}:{recipe.strMeasure3}
+          </p>
+
+          <div>
+            <button
+              onClick={() => {
+                addproduct(recipe);
+              }}
+            >
+              add to favorite
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

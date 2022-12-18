@@ -21,7 +21,7 @@ export type RecipeType = {
 
   strIngredient3: string;
   strMeasure3: string;
-};
+}; //type of each objet which is present in between the array
 export type FavoriteRecipeType = {
   idMeal: string;
   strMeal: string;
@@ -33,20 +33,20 @@ const Apiurl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 function App() {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
+  // state for rendering data in recipe component
   const [favoriteCart, setfavoriteCart] = useState<FavoriteRecipeType[]>([]);
-
-  //console.log(favoriterecipe);
-  //const url = Apiurl + userinput;
+  //state for adding fav recipe to fav cart
 
   function getdata() {
     fetch(Apiurl)
       .then((res) => res.json())
       .then((data) => setRecipes(data.meals));
   }
-  let result;
+
   useEffect(() => {
     getdata();
   }, []);
+  // console.log(recipes, "recipe");getting data in console it is array of object
 
   return (
     <div className="App">
@@ -59,10 +59,10 @@ function App() {
             path="recipe"
             element={
               <Recipe
-                recipes={recipes}
+                recipes={recipes} //passing array here but it will give object in prop
                 setRecipes={setRecipes}
                 favoritecart={favoriteCart}
-                setfavorite={setfavoriteCart}
+                setfavorite={setfavoriteCart} //passing function
               />
             }
           ></Route>

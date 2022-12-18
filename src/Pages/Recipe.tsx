@@ -15,19 +15,22 @@ type Usersrecipe = {
 
 export default function Recipe({
   recipes,
-  setRecipes,
   favoritecart,
+  setRecipes,
   setfavorite,
 }: Usersrecipe) {
+  //destructuring of prop
+
   const [userInput, setUserInput] = useState("");
-  const [filteredrecipe, setFilterdRecipe] = useState<FavoriteRecipeType[]>([]);
-  let useroutput: RecipeType[];
+  //state for userinput
+  let Result: RecipeType[];
+  //Result means whatever user giving input in the text after that outcome
   if (userInput) {
-    useroutput = recipes.filter((item) =>
+    Result = recipes.filter((item) =>
       item.strMeal.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())
     );
   } else {
-    useroutput = recipes;
+    Result = recipes;
   }
 
   {
@@ -42,7 +45,8 @@ export default function Recipe({
         ></SearchForm>
       </div>
       <div className="container">
-        {useroutput.map((item) => {
+        {/* mappig data to the RecipeCpmponent*/}
+        {Result.map((item) => {
           return (
             <RecipeComponent
               key={item.idMeal}
